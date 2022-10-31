@@ -18,6 +18,12 @@ NOTE: 若要瞭解Astra Trident使用的連接埠、請參閱 link:../trident-re
 
 
 
+== Kubernetes 1.25的重要資訊
+
+Astra Trident 22.10支援Kubernetes 1.25。升級至Kubernetes 1.25之前、您必須先升級至Astra Trident 22.10。
+
+
+
 == 支援的前端（協調器）
 
 Astra Trident支援多個容器引擎和協調器、包括：

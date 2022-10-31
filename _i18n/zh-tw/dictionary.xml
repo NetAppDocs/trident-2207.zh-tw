@@ -3291,4 +3291,7 @@
   <block id="324fb1352ffffb105d10013810c42896" category="sidebar">Kubernetes和Astra Trident物件</block>
   <block id="cc4a0df2c635530d752308ab5a1c4b89" category="sidebar">設定ANF後端</block>
   <block id="c949166d6970748c0094c800daa3324a" category="sidebar">管理Astra Trident</block>
+  <block id="dfc322d478fc59cd6375362d8dad7bc0" category="section-title">Kubernetes 1.25的重要資訊</block>
+  <block id="8ecd31edb9e56b6612383d3a68cf1025" category="paragraph">Astra Trident 22.10支援Kubernetes 1.25。升級至Kubernetes 1.25之前、您必須先升級至Astra Trident 22.10。</block>
+  <block id="95390d9ff012ccbe3d3eeff435de47d2" category="sidebar">Astra Trident是由NetApp維護的開放原始碼儲存資源配置程式和Orchestrator。它可讓您為Docker和Kubernetes所管理的容器化應用程式建立儲存磁碟區。請閱讀有關Kubernetes 1.25的重要資訊要求</block>
 </blocks>
