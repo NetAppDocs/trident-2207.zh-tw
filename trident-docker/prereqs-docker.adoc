@@ -50,27 +50,29 @@ RHEL/CentOS 7.
 +
 `sudo yum install -y lsscsi iscsi-initiator-utils sg3_utils device-mapper-multipath`
 
-. 啟動多重路徑精靈：
+. 檢查iscsite-initier-utils版本是否為6.6.0.874-2.el7或更新版本：
 +
-`sudo mpathconf --enable --with_multipathd y`
+`rpm -q iscsi-initiator-utils`
 
-. 請確保如此 `iscsid` 和 `multipathd` 已啟用並執行：
+. 將掃描設為手動：
 +
-`sudo systemctl enable iscsid multipathd`
-`sudo systemctl start iscsid multipathd`
+`sudo sed -i 's/^\(node.session.scan\).*/\1 = manual/' /etc/iscsi/iscsid.conf`
 
-. 探索iSCSI目標：
+. 啟用多重路徑：
 +
-`sudo iscsiadm -m discoverydb -t st -p <DATA_LIF_IP> --discover`
+`sudo mpathconf --enable --with_multipathd y --find_multipaths n`
 
-. 登入探索到的iSCSI目標：
 +
-`sudo iscsiadm -m node -p <DATA_LIF_IP> --login`
+
+NOTE: 確保 `etc/multipath.conf` 包含 `find_multipaths no` 低於 `defaults`。
+
+. 請確保如此 `iscsid` 和 `multipathd` 執行中：
++
+`sudo systemctl enable --now iscsid multipathd`
 
 . 啟用並啟動 `iscsi`：
 +
-`sudo systemctl enable iscsi`
-`sudo systemctl start iscsi`
+`sudo systemctl enable --now iscsi`
 
 
 
@@ -83,28 +85,34 @@ Ubuntu
 +
 `sudo apt-get install -y open-iscsi lsscsi sg3-utils multipath-tools scsitools`
 
+. 檢查開放式iSCSI版本是否為2.0.874-5ubuntu2．10或更新版本（適用於雙聲網路）或2.0.874-7.1ubuntu6.1或更新版本（適用於焦點）：
++
+`dpkg -l open-iscsi`
+
+. 將掃描設為手動：
++
+`sudo sed -i 's/^\(node.session.scan\).*/\1 = manual/' /etc/iscsi/iscsid.conf`
+
 . 啟用多重路徑：
 +
 `sudo tee /etc/multipath.conf <<-'EOF'
 defaults {
     user_friendly_names yes
-    find_multipaths yes
+    find_multipaths no
 }
 EOF
+sudo systemctl enable --now multipath-tools.service
 sudo service multipath-tools restart`
 
-. 請確保如此 `iscsid` 和 `multipathd` 執行中：
 +
-`sudo service open-iscsi start
-sudo service multipath-tools start`
 
-. 探索iSCSI目標：
-+
-`sudo iscsiadm -m discoverydb -t st -p <DATA_LIF_IP> --discover`
+NOTE: 確保 `etc/multipath.conf` 包含 `find_multipaths no` 低於 `defaults`。
 
-. 登入探索到的iSCSI目標：
+. 請確保如此 `open-iscsi` 和 `multipath-tools` 已啟用並執行：
 +
-`sudo iscsiadm -m node -p <DATA_LIF_IP> --login`
+`sudo systemctl status multipath-tools`
+`sudo systemctl enable --now open-iscsi.service`
+`sudo systemctl status open-iscsi`
 
 
 
