@@ -19,7 +19,7 @@ summary: 瞭解Astra Trident管理後端的不同方法。
 
 
 
-== 使用TridentBackendConfig管理Tridentctl後端
+== 管理 `tridentctl` 後端使用 `TridentBackendConfig`
 
 本節說明管理使用建立之後端所需的步驟 `tridentctl` 透過建立、直接透過Kubernetes介面 `TridentBackendConfig` 物件：
 
@@ -120,7 +120,7 @@ secret/backend-tbc-ontap-san-secret created
 ----
 
 
-=== 步驟2：建立TridentBackendConfig CR
+=== 步驟2：建立 `TridentBackendConfig` CR
 
 下一步是建立 `TridentBackendConfig` 會自動連結至預先存在的CR `ontap-nas-backend` （如本範例所示）。確保符合下列要求：
 
@@ -177,7 +177,7 @@ tridentbackendconfig.trident.netapp.io/tbc-ontap-nas-backend created
 ----
 
 
-=== 步驟3：確認TridentBackendConfig CR的狀態
+=== 步驟3：確認的狀態 `TridentBackendConfig` CR
 
 之後 `TridentBackendConfig` 已經建立、其階段必須是 `Bound`。它也應反映與現有後端相同的後端名稱和UUID。
 
@@ -199,7 +199,7 @@ tridentctl get backend -n trident
 
 
 
-== 使用tridentctl管理TridentBackendConfig後端
+== 管理 `TridentBackendConfig` 後端使用 `tridentctl`
 
  `tridentctl` 可用來列出使用建立的後端 `TridentBackendConfig`。此外、系統管理員也可以選擇透過完全管理此類後端 `tridentctl` 刪除 `TridentBackendConfig` 並確保 `spec.deletionPolicy` 設為 `retain`。
 
@@ -226,7 +226,7 @@ tridentctl get backend ontap-san-backend -n trident
 
 
 
-=== 步驟1：確認刪除原則已設定為保留
+=== 步驟1：確認 `deletionPolicy` 設為 `retain`
 
 讓我們來看看的價值 `deletionPolicy`。這需要設定為 `retain`。這可確保在發生時 `TridentBackendConfig` 刪除CR後、後端定義仍會顯示、並可透過進行管理 `tridentctl`。
 
@@ -250,7 +250,7 @@ NOTE: 除非如此、否則請勿繼續下一步 `deletionPolicy` 設為 `retain
 
 
 
-=== 步驟2：刪除TridentBackendConfig CR
+=== 步驟2：刪除 `TridentBackendConfig` CR
 
 最後一個步驟是刪除 `TridentBackendConfig` CR.確認之後 `deletionPolicy` 設為 `retain`、您可以繼續刪除：
 

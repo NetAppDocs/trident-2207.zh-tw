@@ -16,6 +16,7 @@ summary: 瞭Cloud Volumes Service 解如何使用提供的範例組態、將適�
 
 NOTE: 適用於Google Cloud的NetApp Cloud Volumes Service 支援的CVS效能磁碟區大小不得低於100 GiB、或CVS磁碟區大小不得低於300 GiB。如果所要求的磁碟區小於最小大小、Astra Trident會自動建立最小大小的磁碟區。
 
+.您需要的產品
 以設定及使用 https://cloud.netapp.com/cloud-volumes-service-for-gcp?utm_source=NetAppTrident_ReadTheDocs&utm_campaign=Trident["適用於 Google Cloud Cloud Volumes Service"^] 後端、您需要下列項目：
 
 * 使用NetApp CVS設定的Google Cloud帳戶

@@ -22,7 +22,7 @@ API的運作方式如下：
 
 
 
-== 取得
+== `GET`
 
 * `GET <trident-address>/trident/v1/<object-type>`：列出該類型的所有對象。
 * `GET <trident-address>/trident/v1/<object-type>/<object-name>`：獲取命名對象的詳細信息。
@@ -30,7 +30,7 @@ API的運作方式如下：
 
 
 
-== 貼文
+== `POST`
 
 `POST <trident-address>/trident/v1/<object-type>`：創建指定類型的對象。
 
@@ -40,7 +40,7 @@ API的運作方式如下：
 
 
 
-== 刪除
+== `DELETE`
 
 `DELETE <trident-address>/trident/v1/<object-type>/<object-name>`：刪除命名資源。
 

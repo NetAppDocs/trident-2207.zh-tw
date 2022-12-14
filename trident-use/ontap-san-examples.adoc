@@ -237,7 +237,7 @@ NOTE: 如果您在NetApp ONTAP 支援Astra Trident的NetApp上使用Amazon FSX�
 
 
 
-=== ONTAP - SAN驅動程式搭配憑證型驗證
+=== `ontap-san` 具有憑證型驗證的驅動程式
 
 這是最小的後端組態範例。 `clientCertificate`、 `clientPrivateKey`和 `trustedCACertificate` （選用、如果使用信任的CA）會填入 `backend.json` 並分別取得用戶端憑證、私密金鑰及信任CA憑證的基礎64編碼值。
 
@@ -263,7 +263,7 @@ NOTE: 如果您在NetApp ONTAP 支援Astra Trident的NetApp上使用Amazon FSX�
 ----
 
 
-=== ONTAP與雙向CHAP的SAN驅動程式
+=== `ontap-san` 使用雙向CHAP的驅動程式
 
 這是最小的後端組態範例。此基本組態會建立 `ontap-san` 後端 `useCHAP` 設定為 `true`。
 
@@ -288,7 +288,7 @@ NOTE: 如果您在NetApp ONTAP 支援Astra Trident的NetApp上使用Amazon FSX�
 ----
 
 
-=== ONTAP-san經濟驅動程式
+=== `ontap-san-economy` 驅動程式
 
 [listing]
 ----

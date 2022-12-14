@@ -19,6 +19,7 @@ TIP: 如果您尚未熟悉 link:../trident-concepts/intro.html["基本概念"^]�
 
 TIP: 若要自訂部署、請參閱 link:kubernetes-customize-deploy-tridentctl.html["請按這裡"^]。
 
+.您需要的產品
 若要部署Astra Trident、必須符合下列先決條件：
 
 * 您擁有支援的Kubernetes叢集的完整權限。
