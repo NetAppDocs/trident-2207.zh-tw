@@ -1519,7 +1519,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-10-25 16:39:56 +0000">10/25/2022</time>
+    <time datetime="2023-01-03 17:24:09 +0000">01/03/2023</time>
     
   
 
@@ -1559,7 +1559,7 @@
 <p>大部分方面都是以後端特定的詞彙來指定。最重要的是、在後端驅動程式之外、不會顯示高寬比值、也無法在中進行比對 <code>StorageClasses</code>。而是由系統管理員為每個虛擬資源池定義一或多個標籤。每個標籤都是「金鑰：值配對」、而且標籤可能在獨特的後端之間通用。如同個別層面、標籤可依資源池指定、也可全域指定至後端。不同於具有預先定義名稱和值的各個層面、系統管理員有充分的判斷權、可視需要定義標籤金鑰和值。</p>
 </div>
 <div class="paragraph">
-<p>答 <code>StorageClass</code> 透過參照選取元參數中的標籤來識別要使用的虛擬資源池。虛擬資源池選取器支援六個運算子：</p>
+<p>答 <code>StorageClass</code> 透過參照選取元參數中的標籤來識別要使用的虛擬資源池。虛擬資源池選取器支援下列運算子：</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -1571,29 +1571,39 @@
 <tr>
 <th class="tableblock halign-left valign-top">營運者</th>
 <th class="tableblock halign-left valign-top">範例</th>
-<th class="tableblock halign-left valign-top">說明</th>
+<th class="tableblock halign-left valign-top">集區的標籤值必須：</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>=</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">效能=優異</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">資源池的標籤值必須相符</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">相符</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>!=</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">效能！=極致</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">集區的標籤值不得相符</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">不相符</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>in</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">位置（東部、西部）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">集區的標籤值必須位於一組值中</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">加入一組值</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>notin</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">效能附註（銀、銅）</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">集區的標籤值不得為b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">不在一組值中</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;key&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">保護</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">存在於任何值</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>!&lt;key&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">!保護</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">不存在</p></td>
 </tr>
 </tbody>
 </table>
